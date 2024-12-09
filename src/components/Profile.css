@@ -1,0 +1,19 @@
+.profile {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  border-radius: 50%; /* Make it round */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  background-color: #444; /* Default background color */
+}
+
+.profile.user {
+  background-color: #666; /* User avatar color */
+}
+
+.profile.bot {
+  background-color: #333; /* Bot avatar color */
+}

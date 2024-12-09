@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Chatbot.css";
 import { dummyMessages, keywordResponses } from "../data/dummyData";
+import Profile from "./Profile";
 
 function Chatbot() {
   const [messages, setMessages] = useState(dummyMessages);
@@ -51,11 +52,16 @@ function Chatbot() {
       <div className="chatbot-header">Chatbot</div>
       <div className="chatbot-messages">
         {messages.map((msg) => (
-          <div
-            key={msg.id}
-            className={`chatbot-message ${msg.sender}`}
-            dangerouslySetInnerHTML={{ __html: msg.text }}
-          ></div>
+          <div key={msg.id} className={`message-container ${msg.sender}`}>
+            <Profile
+              initials={msg.sender === "bot" ? "CB" : "U"}
+              isUser={msg.sender === "user"}
+            />
+            <div
+              className={`chatbot-message ${msg.sender}`}
+              dangerouslySetInnerHTML={{ __html: msg.text }}
+            ></div>
+          </div>
         ))}
       </div>
       <div className="chatbot-input">
